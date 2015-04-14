@@ -1,0 +1,10 @@
+apache_logs
+
+# Python Files
+*pyc
+
+# Temporary files
+*~
+
+# Vagrant files
+.vagrant/
