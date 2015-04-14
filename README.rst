@@ -14,7 +14,7 @@ Fabric permite realizar una gran variedad de tareas, pero resumidamente podemos 
   
 Casos de uso:
 
-- Sistematizar el proceso de deploymente de una aplicación (puede no ser una aplicación Python)
+- Sistematizar el proceso de deploy de una aplicación (puede no ser una aplicación Python)
 - Automatizar tareas comunes de administración de sistemas:
   
   - instalación de aplicaciones
@@ -37,7 +37,8 @@ Otra opción es usar el Administrador de paquetes correspondiente a nuestro sist
 
     $ sudo apt-get install fabric
 
-.. warning:: En algunos sistemas el paquete fabric puede aparecer con el nombre python-fabric
+
+Nota: En algunos sistemas el paquete fabric puede aparecer con el nombre python-fabric
 
 
 Componentes
@@ -96,7 +97,7 @@ run :
       
         $ fab system_info -H 192.168.0.2 -u vagrant  
 
-    .. note:: al ejecutar el comando anterior se nos pedirá que ingresemos el password del usuario `vagrant`. Como se ve, la ejecución de comando permite la interacción entre el usuario que lo lanzó y el servidor remoto.    
+    Nota: al ejecutar el comando anterior se nos pedirá que ingresemos el password del usuario `vagrant`. Como se ve, la ejecución de comando permite la interacción entre el usuario que lo lanzó y el servidor remoto.    
     
 
 sudo : 
@@ -114,13 +115,13 @@ sudo :
             
             sudo("ls -l /var/www")
 
-    El comando anterior crear el directorio con el nombre que le especifiquemos en el path ``/var/www/`` (arrojando un warning si el mismo ya existe) y luego lista los archivos. Como en el caso anterior podemos ejecutarlo con:
+    El comando anterior crear el directorio con el nombre que le especifiquemos, en el path ``/var/www/``, arrojando un warning si el mismo ya existe y luego lista los archivos. Como en el caso anterior podemos ejecutarlo con:
 
     .. code-block:: console
         
         $ fab create_app_dir:appname="arsat" -H 192.168.0.2 -u vagrant
 
-    .. note:: si en el script anterior utilizábamos ``run`` en lugar de ``sudo`` el comando fallaría en crear el directorio ya que no tenemos permisos para escribir en ``/var/www``.
+    Nota: si en el script anterior utilizábamos ``run`` en lugar de ``sudo`` el comando fallaría en crear el directorio ya que no tenemos permisos para escribir en ``/var/www``.
 
 
 local : 
@@ -207,7 +208,7 @@ Otras funciones y utilidades
 Algunas cosas más que ofrece Fabric:
 
 `Context Managers`_ : 
-    Permiten definir ciertos contextos en los que se ejecuta un comando. Por ejemplo, podemos definir variables de entorno, movernos a un directorio, omitir errores de ejecución, etc
+    Permiten definir ciertos contextos en los que se ejecuta un comando. Por ejemplo, podemos definir variables de entorno, movernos a un directorio, omitir errores de ejecución, etc.
 
 `Manejo de archivos`_ : 
     Provee un conjunto de funciones para el manejo de archivos remotos. Entre otras cosas permite:
@@ -222,8 +223,8 @@ Algunas cosas más que ofrece Fabric:
 .. _`Manejo de archivos` : http://docs.fabfile.org/en/1.10/api/contrib/files.html
 
 
-Cómo lo utilizamos:
--------------------
+Cómo lo utilizamos
+------------------
 
 Fabric fue utilizado en el proyecto FOP-ARSAT para crear los scripts de instalación y actualización de nuestra aplicación. Haciendo uso de esta librería, desarrollamos un script que le permitía al cliente tener instalada y configurada la aplicación en sus propios servidores, en cuestión de minutos y con una mínima configuración.
 
